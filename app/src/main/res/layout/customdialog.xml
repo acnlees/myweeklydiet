@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:padding="5dip"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/calories"
+        android:layout_toLeftOf="@+id/update"
+        android:layout_toStartOf="@+id/update" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/fat"
+        android:layout_below="@+id/carbs"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/carbs"
+        android:layout_alignEnd="@+id/carbs" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/carbs"
+        android:layout_below="@+id/protein"
+        android:layout_alignRight="@+id/protein"
+        android:layout_alignEnd="@+id/protein" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/protein"
+        android:layout_below="@+id/calories"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/calories"
+        android:layout_alignEnd="@+id/calories" />
+    <Button
+        android:id="@+id/add"
+        android:layout_width="120dip"
+        android:layout_height="40dip"
+        android:text="Add"
+        android:textSize="25sp"
+        android:background="@color/primaryColor"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/fat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/update"
+        android:layout_width="120dip"
+        android:layout_height="40dip"
+        android:text="update"
+        android:textSize="25sp"
+        android:background="@color/primaryColor"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/fat"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amount"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/calories"
+        android:hint="amount"
+        android:layout_alignBottom="@+id/carbs"
+        android:layout_alignTop="@+id/protein" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="per 100g"
+        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/calories"
+        android:layout_toRightOf="@+id/calories"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
