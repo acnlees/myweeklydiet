@@ -24,10 +24,12 @@ public class food {
         return this.calories;
     }
 
-    public String getFat() {
+    public String getFat()
+    {
         return fat;
     }
-    public String getProtein() {
+    public String getProtein()
+    {
         return protein;
     }
     public String getCarbs() {

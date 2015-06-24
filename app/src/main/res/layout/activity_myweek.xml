@@ -17,7 +17,7 @@
         android:id="@+id/add"
         android:layout_width="220dip"
         android:layout_height="40dip"
-        android:text="Save week"
+        android:text="Save record"
         android:textSize="25sp"
         android:background="@color/primaryColor"
         android:textColor="#ffffffff"
