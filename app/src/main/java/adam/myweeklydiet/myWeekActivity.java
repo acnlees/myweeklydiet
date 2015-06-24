@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -35,7 +36,7 @@ import java.util.List;
 public class myWeekActivity extends MainActivity {
 
     public SharedPreferences shared;
-    public TextView caloriestext;
+    public TextView nameText;
     public TextView fattext;
     public TextView proteintext;
     public TextView carbstext;
@@ -53,19 +54,28 @@ public class myWeekActivity extends MainActivity {
     protected void onCreate(Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.activity_myweek);
+
         SharedPreferences shared;
         shared = getSharedPreferences("shared", Context.MODE_PRIVATE);
+
         DB = getApplicationContext().openOrCreateDatabase("weeks", MODE_PRIVATE, null);
+
+        nameText = (TextView) findViewById(R.id.name);
+        save = (Button) findViewById(R.id.add);
 
         Intent i = getIntent();
         recordName = i.getStringExtra("record");
-        Log.d("record", recordName);
+
+        nameText.setText(recordName);
+
         if(recordName.equals("Current")) {
             cals = shared.getFloat("cals", 0);
             fat = shared.getFloat("fat", 0);
             protein = shared.getFloat("protein", 0);
             carbs = shared.getFloat("carbs", 0);
         }else{
+            save.setVisibility(View.GONE);
+
             Cursor c = DB.rawQuery("SELECT * FROM `weeks` WHERE `name` ='"+recordName+"'", null);
             if (c != null ) {
                 if  (c.moveToFirst()) {
@@ -84,8 +94,7 @@ public class myWeekActivity extends MainActivity {
 
 
 
-        caloriestext = (TextView) findViewById(R.id.calories);
-        save = (Button) findViewById(R.id.add);
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +103,7 @@ public class myWeekActivity extends MainActivity {
 
             }
         });
-        caloriestext.setText(" Total Calories : " + String.valueOf(cals));
+
 
 
         PieChart chart = (PieChart) findViewById(R.id.chart);
@@ -177,6 +186,7 @@ public class myWeekActivity extends MainActivity {
 
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
+
                 dialog.dismiss();
             }
         });

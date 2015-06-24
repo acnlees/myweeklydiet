@@ -13,7 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("My Calorie Counter");
+        setTitle("My Calorie Counter");
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         listView = (ListView) findViewById(R.id.list);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -89,7 +93,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -98,12 +101,6 @@ public class MainActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

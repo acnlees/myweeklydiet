@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.melnykov.fab.FloatingActionButton;
@@ -37,7 +38,7 @@ import java.util.Map;
 public class addWeekActivity extends MainActivity {
 
     public String searchTerm;
-    public String searchUrl = "http://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=25&offset=0&api_key=mAT76mqFbvDpft67Qv15V2Dyt8XOdV8u0prN2qIS&q=";
+    public String searchUrl = "http://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=100&offset=0&api_key=mAT76mqFbvDpft67Qv15V2Dyt8XOdV8u0prN2qIS&q=";
 
     public String dataUrl = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=mAT76mqFbvDpft67Qv15V2Dyt8XOdV8u0prN2qIS&nutrients=203&nutrients=204&nutrients=208&nutrients=205&ndbno=";
 
@@ -138,18 +139,18 @@ public class addWeekActivity extends MainActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.customdialog);
 
-        final TextView calories = (TextView)dialog.findViewById(R.id.calories);
-        final TextView fat = (TextView)dialog.findViewById(R.id.fat);
-        final TextView protein = (TextView)dialog.findViewById(R.id.protein);
-        final TextView carbs = (TextView)dialog.findViewById(R.id.carbs);
+        final TextView caloriestext = (TextView)dialog.findViewById(R.id.calories);
+        final TextView fattext = (TextView)dialog.findViewById(R.id.fat);
+        final TextView proteintext = (TextView)dialog.findViewById(R.id.protein);
+        final TextView carbstext= (TextView)dialog.findViewById(R.id.carbs);
         final EditText amount = (EditText)dialog.findViewById(R.id.amount);
         final Button update = (Button)dialog.findViewById(R.id.update);
 
 
-        calories.setText("cals:"+  newFood.getCalories());
-        fat.setText("fat:"+ newFood.getFat());
-        protein.setText("protein:"+ newFood.getProtein());
-        carbs.setText("carbs: "+ newFood.getCarbs());
+        caloriestext.setText(newFood.getCalories());
+        fattext.setText(newFood.getFat());
+        proteintext.setText( newFood.getProtein());
+        carbstext.setText(newFood.getCarbs());
 
         Button button = (Button)dialog.findViewById(R.id.add);
 
@@ -164,10 +165,10 @@ public class addWeekActivity extends MainActivity {
                 float carb = Float.parseFloat(newFood.getCarbs())*d;
                 float prots = Float.parseFloat(newFood.getProtein())*d;
 
-                calories.setText("cals:"+  String.valueOf(cals));
-                fat.setText("fat:"+  String.valueOf(fats));
-                carbs.setText("carbs:"+  String.valueOf(carb));
-                protein.setText("protein:"+  String.valueOf(prots));
+                caloriestext.setText(String.valueOf(cals));
+                fattext.setText(String.valueOf(fats));
+                carbstext.setText(String.valueOf(carb));
+                proteintext.setText(String.valueOf(prots));
 
             }
 
@@ -184,27 +185,29 @@ public class addWeekActivity extends MainActivity {
                 shared = getSharedPreferences("shared", Context.MODE_PRIVATE);
 
                 float cals = shared.getFloat("cals", 0);
-                float fat = shared.getFloat("fat", 0);
-                float protein = shared.getFloat("protein", 0);
+                float fats = shared.getFloat("fat", 0);
+                float proteins = shared.getFloat("protein", 0);
                 float carbs = shared.getFloat("carbs", 0);
                 Log.d("cals", String.valueOf(cals));
 
                 SharedPreferences.Editor prefsEditor = shared.edit();
 
-                cals = cals + Float.parseFloat(newFood.calories);
-                fat = fat +  Float.parseFloat(newFood.fat);
-                protein = protein +  Float.parseFloat(newFood.protein);
-                carbs = carbs +  Float.parseFloat(newFood.carbs);
+                cals = cals + Float.parseFloat(caloriestext.getText().toString());
+                fats = fats +  Float.parseFloat(fattext.getText().toString());
+                proteins = proteins +  Float.parseFloat(proteintext.getText().toString());
+                carbs = carbs +  Float.parseFloat(carbstext.getText().toString());
 
                 Log.d("cals2", String.valueOf(cals));
 
                 prefsEditor.putFloat("cals", cals);
-                prefsEditor.putFloat("fat", fat);
+                prefsEditor.putFloat("fat", fats);
                 prefsEditor.putFloat("carbs", carbs);
-                prefsEditor.putFloat("protein", protein);
+                prefsEditor.putFloat("protein", proteins);
 
 
                 prefsEditor.commit();
+
+                Toast.makeText(getApplicationContext(), "Added to Current", Toast.LENGTH_LONG).show();
 
                 dialog.dismiss();
             }

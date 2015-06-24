@@ -1,6 +1,11 @@
 <TextView
     android:id="@+id/week_start"
     android:layout_width="fill_parent"
-    android:layout_height="100dp"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:layout_height="60dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="24dp"
+    android:textColor="#000" />
+
+
+
 

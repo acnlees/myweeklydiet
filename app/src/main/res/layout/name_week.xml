@@ -10,7 +10,7 @@
        android:layout_width="fill_parent"
        android:layout_height="50dp"
        android:id="@+id/name"
-       android:hint="name"/>
+       android:hint="Name record"/>
     <Button
         android:id="@+id/save"
         android:layout_width="120dip"

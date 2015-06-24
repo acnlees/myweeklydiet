@@ -11,33 +11,45 @@
         android:layout_height="40dp"
         android:id="@+id/calories"
         android:layout_toLeftOf="@+id/update"
-        android:layout_toStartOf="@+id/update" />
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:textSize="20sp"
+        android:gravity="right" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:id="@+id/fat"
         android:layout_below="@+id/carbs"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/carbs"
-        android:layout_alignEnd="@+id/carbs" />
+        android:layout_alignEnd="@+id/carbs"
+        android:layout_toEndOf="@+id/textView6"
+        android:textSize="20sp"
+        android:layout_alignLeft="@+id/carbs"
+        android:layout_alignStart="@+id/carbs"
+        android:gravity="right" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:id="@+id/carbs"
         android:layout_below="@+id/protein"
         android:layout_alignRight="@+id/protein"
-        android:layout_alignEnd="@+id/protein" />
+        android:layout_alignEnd="@+id/protein"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:textSize="20sp"
+        android:gravity="right" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:id="@+id/protein"
         android:layout_below="@+id/calories"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/calories"
-        android:layout_alignEnd="@+id/calories" />
+        android:layout_alignEnd="@+id/calories"
+        android:layout_alignLeft="@+id/calories"
+        android:layout_alignStart="@+id/calories"
+        android:textSize="20sp"
+        android:gravity="right" />
     <Button
         android:id="@+id/add"
         android:layout_width="120dip"
@@ -71,7 +83,9 @@
         android:hint="amount g"
         android:inputType="number"
         android:layout_alignBottom="@+id/carbs"
-        android:layout_alignTop="@+id/protein" />
+        android:layout_alignTop="@+id/protein"
+        android:textSize="15sp"
+        android:gravity="center_vertical|right" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,6 +96,53 @@
         android:layout_toRightOf="@+id/calories"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="15sp"
+        android:textAlignment="textEnd"
+        android:gravity="right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cals:"
+        android:id="@+id/textView3"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Protein:"
+        android:id="@+id/textView4"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/protein"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carbs:"
+        android:id="@+id/textView5"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_below="@+id/protein"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fat:"
+        android:id="@+id/textView6"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/fat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

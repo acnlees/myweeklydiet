@@ -53,8 +53,9 @@ package adam.myweeklydiet;
                 fat = fat*d;
                 carbs = carbs *d;
 
-                newFood.protein = String.valueOf(protein);
 
+
+                newFood.protein = String.valueOf(protein);
                 newFood.calories = String.valueOf(calories);
                 newFood.fat =  String.valueOf(fat);
                 newFood.carbs = String.valueOf(carbs);
