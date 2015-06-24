@@ -68,7 +68,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/calories"
-        android:hint="amount"
+        android:hint="amount g"
+        android:inputType="number"
         android:layout_alignBottom="@+id/carbs"
         android:layout_alignTop="@+id/protein" />
 
